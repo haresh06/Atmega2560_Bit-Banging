@@ -1,13 +1,15 @@
 #ifndef I2C_BB_H
 #define I2C_BB_H
 
-#define DDRF   (*(volatile uint8_t *)0x30)
-#define PORTF  (*(volatile uint8_t *)0x31)
-#define PINF   (*(volatile uint8_t *)0x2F)
+#include <stdint.h>
+
+#define DDRF (*(volatile uint8_t *)0x30)
+#define PORTF (*(volatile uint8_t *)0x31)
+#define PINF (*(volatile uint8_t *)0x2F)
 
 /* Port F bit positions */
-#define PF0    0 //SDA
-#define PF1    1 //SCL
+#define SDA_PIN 1 // PF1 - SDA
+#define SCL_PIN 2 // PF2 - SCL
 
 void sda_low(void);
 void sda_release(void);
