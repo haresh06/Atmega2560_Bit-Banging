@@ -17,7 +17,7 @@ void spi_init(void)
     PORTK &= ~(1<<SCK);
 }
 
-uint8_t spi_transfer(uint8_t data)
+void spi_transfer(uint8_t data)
 {
     //SELECTING THE SLAVE DEVICE BY PULLING CS LOW
     PORTK &= ~(1<<CS);
@@ -28,6 +28,9 @@ uint8_t spi_transfer(uint8_t data)
           PORTK |= (1<<MOSI);
         else
           PORTK &= ~(1<<MOSI);
+
+          PORTK |= (1 << SCK);   // SCK HIGH
+          PORTK &= ~(1 << SCK);  // SCK LOW
     }
     //SETTING BACK THE CS HIGH 
     PORTK |= (1<<CS);
