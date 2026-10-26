@@ -10,4 +10,8 @@
 #define SCK  1
 #define CS   0
 
+void spi_init(void);
+
+uint8_t spi_transfer(uint8_t data);
+
 #endif
